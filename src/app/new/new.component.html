@@ -1,0 +1,138 @@
+<div>
+<app-header></app-header>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////-->
+  
+    <div class="app-content content container-fluid">
+      <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-right col-xs-12 mb-1 ">
+            <a class="btn btn-primary btn-xs float-xs-right mr-1" routerLink="/preview" target="_blank"><i class="fa fa-eye"></i> Preview</a>
+   </div>
+      </div>
+      <div class="content-body">
+      <div class="row">
+        
+      <div class="col-xs-12 ">
+                  
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-header" style="border-bottom: 2px solid #eee">
+                <h6 class="">ToolSpace</h6>
+            </div>
+          
+          <div class="card-block" style="height:150px; overflow-y:scroll;background:#f5f5f5">
+              <div class="btn-group">
+               <button id="toolspace" *ngFor="let tool of toolspace" [dragData]="tool" class="btn btn-default mb-1 mr-1" dnd-draggable [dragEnabled]="true">
+                  <i class="{{tool.icon}}"></i> {{tool.name}}
+                </button>
+              </div>
+          </div>
+          <div class="card-block" style="min-height:180px;">
+            <span class="title">Theme</span>
+            <div class="pt-2">
+              <button *ngFor="let item of theme" [ngClass]="item.style" (click)="titleColor(item)" data-toggle="button" aria-pressed="false"><i class="{{item.fa}}"></i></button>
+            </div>
+          </div>
+          <hr/>
+          <div class="card-block">
+            <p>
+              Adding items from here to the other side is easy just drag and drop what you want.
+            </p>
+          </div>
+
+          </div>
+        </div>
+        
+        <div class="col-sm-8">
+          <div class="card">
+                <div class="card-header" [ngClass]="background">
+                    <h4 class="card-title" [ngClass]="text">{{title}}</h4>
+                    <!--<a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="reload" ><i class="ft-rotate-cw"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>-->
+                </div>
+                <div class="card-body collapse in">
+                   
+                    <div class="card-block" dnd-droppable (onDropSuccess)="addToForm($event)" style="min-height:450px">
+                        <div class="card-text">
+                          <div *ngIf="!active" class="col-xs-8 offset-xs-2" id="placeholder">
+                            <h4 class="mt-5">Drag and drop contents from the toolspace here!</h4>
+                          </div>
+                          <form #toolForm = "ngForm" (submit)="saveForm(toolForm.value)">
+                            <div *ngFor="let input of formList" class="panel panel-default">
+                              <div *ngIf="input.type !== 'textarea'" class="form-group">
+                                  <label>{{input.label}}<sup *ngIf="input.required == '1'" class="danger">*</sup></label>
+                                  <a href="javascript:;" class="float-xs-right pink" data-toggle="tooltip" data-placement="top" title="Remove" (click)="remove(input)"><i class="fa fa-times fa-1x"></i></a>
+                                  <input type="{{input.type}}" name="{{input.label}}" class="form-control" *ngIf="input.required == '1'" required/>
+                                  <input type="{{input.type}}" name="{{input.label}}" class="form-control" *ngIf="input.required !== '1'" />
+                              </div>
+                              <div *ngIf="input.type == 'textarea'" class="form-group">
+                                  <label>{{input.label}}<sup *ngIf="input.required == '1'" class="danger">*</sup></label>
+                                  <a href="javascript:;" class="float-xs-right pink" data-toggle="tooltip" data-placement="top" title="Remove" (click)="remove(input)"><i class="fa fa-times fa-1x"></i></a>
+                                  <textarea class="form-control" name="{{input.label}}" *ngIf="input.required == '1'" required rows="5" cols="10"></textarea>
+                                  <textarea class="form-control" name="{{input.label}}" rows="5" cols="10" *ngIf="input.required !== '1'"></textarea>
+                             
+                              </div>                                
+                            </div>
+                             <div *ngIf="active" class="form-group">
+                               <button type="submit" [ngClass]="btn"><i class="fa fa-save"></i> Save</button>
+                              </div>
+                            </form> 
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+          
+        </div>
+
+
+      </div>
+      </div>
+      </div>
+      </div>
+    </div>
+
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+ 
+  <footer class="footer footer-static footer-light navbar-border">
+    <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
+      <span class="float-md-left d-xs-block d-md-inline-block">Copyright &copy; 2017
+        <span target="_blank" class="text-bold-800 grey darken-2">Campus Ministry </span>, All rights
+        reserved. </span>
+      <!--<span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="ft-heart pink"></i></span>-->
+    </p>
+  </footer>
+
+  <div class="modal" id="loadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <h5 class="modal-title white" id="exampleModalLabel">Form Editor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="modForm">
+            
+          </form>
+        </div>
+        <!--<div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>-->
+      </div>
+    </div>
+  </div>
+
+  </div>
+

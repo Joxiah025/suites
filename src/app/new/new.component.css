@@ -1,0 +1,14 @@
+#toolspace{
+cursor: move !important; 
+background: #fff !important;
+}
+
+#placeholder{
+    /*border:2px dashed #eee; */
+    height:200px; 
+    text-align:center;
+}
+
+.mt-5{
+    margin-top:10rem;
+}

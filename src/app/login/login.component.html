@@ -1,0 +1,69 @@
+<div>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div class="app-content container-fluid">
+    <div class="content-wrapper">
+      <div class="content-header row">
+      </div>
+      <div class="content-body">
+        <section class="flexbox-container">
+          <div class="col-md-4 offset-md-4 col-xs-10 offset-xs-1 p-0">
+            <div class="card border-grey border-lighten-3 m-0">
+              <div class="card-header no-border">
+                <div class="card-title text-xs-center">
+                  <div class="p-1">
+                    <img src="assets/images/logo/stack-logo-dark.png" alt="branding logo">
+                  </div>
+                </div>
+                <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2">
+                  <span>Login into Suites</span>
+                </h6>
+              </div>
+              <div class="card-body collapse in">
+                <div class="card-block">
+                  <form class="form-horizontal form-simple" action="#" novalidate (ngSubmit)="loginCheck(loginForm.value)" #loginForm = "ngForm">
+                    <div class="form-group respInfo" *ngIf="error">
+                      <div class="alert alert-danger">
+                        <i class="fa fa-exclamation-triangle"></i>  {{message}} 
+                        <!--<button class="close" data-dismiss="alert">&times;</button>-->
+                      </div>
+                    </div>
+                    <fieldset class="form-group position-relative has-icon-left mb-10">
+                      <input type="email" class="form-control form-control-lg input-lg" name="email" id="user-name" placeholder="Email address" ngModel required>
+                      <div class="form-control-position">
+                        <i class="fa fa-envelope"></i>
+                      </div>
+                      
+                    </fieldset>
+                    <fieldset class="form-group position-relative has-icon-left">
+                      <input type="password" class="form-control form-control-lg input-lg" id="user-password"
+                      placeholder="Password"  name="password" required ngModel>
+                      <div class="form-control-position">
+                        <i class="fa fa-key"></i>
+                      </div>
+                    </fieldset>
+                    <fieldset class="form-group row">
+                      <div class="col-md-6 col-xs-12 text-xs-center text-md-left float-md-left">
+                        <fieldset>
+                          <input type="checkbox" id="remember-me" class="chk-remember">
+                          <label for="remember-me"> Remember Me</label>
+                        </fieldset>
+                      </div>
+                      <div class="col-md-6 col-xs-12 text-xs-center text-md-right float-md-right"><a href="recover-password.html" class="card-link">Forgot Password?</a></div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fa fa-unlock"></i> Login</button>
+                  </form>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="">
+                  <p class="float-sm-left text-xs-center m-0"><a href="recover-password.html" class="card-link">Recover password</a></p>
+                  <p class="float-sm-right text-xs-center m-0">New to Suites? <a href="register-simple.html" class="card-link">Sign Up</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div>
+  <!-- navbar-fixed-top-->
+  <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-semi-dark navbar-shadow">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
+          <li class="nav-item">
+            <a routerLink="/dashboard" class="navbar-brand">
+              <img alt="stack admin logo" src="./assets/images/logo/stack-logo-light.png"
+              class="brand-logo">
+              <h2 class="brand-text">Suite</h2>
+            </a>
+          </li>
+          <li class="nav-item hidden-md-up float-xs-right">
+            <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-container content container-fluid">
+        <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
+          <ul class="nav navbar-nav">
+            <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu"></i></a></li>
+         
+          </ul>
+          <ul class="nav navbar-nav float-xs-right">
+            <li class="dropdown dropdown-user nav-item">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
+                <span class="avatar avatar-online">
+                  <img src="./assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span>
+                <span class="user-name">John Doe</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
+                <a href="#" class="dropdown-item"><i class="ft-mail"></i> My Inbox</a>
+                <a href="#" class="dropdown-item"><i class="ft-check-square"></i> Task</a>
+                <a href="#" class="dropdown-item"><i class="ft-comment-square"></i> Chats</a>
+                <div class="dropdown-divider"></div><a href="#" class="dropdown-item"><i class="ft-power"></i> Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
+    <div class="main-menu-content">
+      <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+        <li class=" navigation-header">
+          <span>General</span><i data-toggle="tooltip" data-placement="right" data-original-title="General"
+          class=" ft-minus"></i>
+        </li>
+        <li class=" nav-item active"><a routerLink="/dashboard"><i class="ft-home"></i><span data-i18n="" class="menu-title">Dashboard</span><span class="tag tag tag-primary tag-pill float-xs-right mr-2">3</span></a></li>
+        <li class=" nav-item"><a routerLink="/report"><i class="ft-monitor"></i><span data-i18n="" class="menu-title">Reports</span></a></li>
+           
+        
+      </ul>
+    </div>
+  </div>
+
+</div>
